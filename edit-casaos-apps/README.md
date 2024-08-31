@@ -1,3 +1,9 @@
+# Menu CasaOS (Update)
+```
+chmod +x casaos.sh
+./casaos.sh
+```
+
 # Run command
 
 ```bash
