@@ -1,0 +1,50 @@
+#!/bin/bash
+
+while true; do
+    clear
+    echo "==========================================="
+    echo "             CasaOS Management             "
+    echo "==========================================="
+    echo "1. Install CasaOS"
+    echo "2. Update CasaOS"
+    echo "3. Change CasaOS Port"
+    echo "4. Uninstall CasaOS"
+    echo "5. Exit"
+    echo "6. Back to Menu"
+    echo "==========================================="
+    read -p "Select an option [1-6]: " option
+
+    case $option in
+        1)
+            echo "Installing CasaOS..."
+            curl -fsSL https://get.casaos.io | sudo bash
+            read -p "Press [Enter] to return to menu..."
+            ;;
+        2)
+            echo "Updating CasaOS..."
+            curl -fsSL https://get.casaos.io/update | sudo bash
+            read -p "Press [Enter] to return to menu..."
+            ;;
+        3)
+            echo "Changing CasaOS Port..."
+            bash -c "$(wget -qLO - https://raw.githubusercontent.com/bigbeartechworld/big-bear-scripts/master/edit-casaos-apps/run.sh)"
+            read -p "Press [Enter] to return to menu..."
+            ;;
+        4)
+            echo "Uninstalling CasaOS..."
+            sudo casaos-uninstall
+            read -p "Press [Enter] to return to menu..."
+            ;;
+        5)
+            echo "Exiting..."
+            exit 0
+            ;;
+        6)
+            echo "Returning to menu..."
+            ;;
+        *)
+            echo "Invalid option, please try again."
+            read -p "Press [Enter] to return to menu..."
+            ;;
+    esac
+done
